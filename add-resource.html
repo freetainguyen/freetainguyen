@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm / Quản lý Tài Nguyên - Minecraft Resources</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body onload="displayAllResources('allResources')">
+  <header>Thêm & Quản lý Tài Nguyên</header>
+  <nav>
+    <a href="index.html">Trang chủ</a>
+    <a href="plugins.html">Plugins</a>
+    <a href="configs.html">Configs</a>
+    <a href="models.html">Models</a>
+    <a href="setup.html">File Setup</a>
+    <a href="add-resource.html">Thêm Tài Nguyên</a>
+  </nav>
+
+  <div class="container">
+    <h2>Form Thêm Tài Nguyên</h2>
+    <form id="resForm" onsubmit="event.preventDefault(); handleAddResource(); displayAllResources('allResources');">
+      <label for="resName">Tên tài nguyên:</label><br>
+      <input type="text" id="resName" required><br><br>
+
+      <label for="resDesc">Mô tả:</label><br>
+      <textarea id="resDesc" rows="3" required></textarea><br><br>
+
+      <label for="resLink">Link tải:</label><br>
+      <input type="url" id="resLink" required><br><br>
+
+      <label for="resType">Loại tài nguyên:</label><br>
+      <select id="resType">
+        <option value="plugin">Plugin</option>
+        <option value="config">Config</option>
+        <option value="model">Model</option>
+        <option value="setup">File Setup</option>
+      </select><br><br>
+
+      <button type="submit">Thêm</button>
+    </form>
+
+    <hr style="margin: 30px 0; border: 1px solid #222;">
+
+    <h2>Quản lý Tài Nguyên (Xóa)</h2>
+    <div id="allResources"></div>
+  </div>
+</body>
+</html>
